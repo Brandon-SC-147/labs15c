@@ -68,7 +68,7 @@ jobs:
       - name: Deploy to Vercel
         id: deploy-vercel
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}  # Uses the Vercel token stored in GitHub secrets
         # 💡 Usamos --confirm y limpiamos la salida para extraer SOLO la URL limpia
         run: |
           URL=$(npx vercel --prod --yes --token $VERCEL_TOKEN | tail -n 1)
@@ -85,7 +85,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # REEMPLAZA: Pon tu usuario/organización y el nombre del repositorio de Cypress
-          repository: 'alunai-lang/c15'
+          repository: 'Brandon-SC-147/cypress15c'
           # REEMPLAZA: Crea un GitHub Personal Access Token (PAT) y guárdalo en Settings -> Secrets
           token: ${{ secrets.MI_GITHUB_TOKEN_REPOS }}
           path: 'cypress-tests' # Descarga las pruebas en esta subcarpeta
